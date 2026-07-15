@@ -46,17 +46,33 @@ export async function onRequestPost({ request, env }) {
     const session = await stripe.checkout.sessions.create({
       ui_mode: 'embedded',
       mode: 'payment',
-      line_items: [{
-        price_data: {
-          currency: 'eur',
-          unit_amount: PRICES_EUR[pkg] * 100,
-          product_data: {
-            name: (packageName || pkg) + ' — Saturday ' + niceDate,
-            description: 'Porto Pub Crawl · Praça de Carlos Alberto · 22:30–02:30'
-          }
+      line_items: [
+        {
+          price_data: {
+            currency: 'eur',
+            unit_amount: PRICES_EUR[pkg] * 100,
+            tax_behavior: 'exclusive',
+            product_data: {
+              name: (packageName || pkg) + ' — Saturday ' + niceDate,
+              description: 'Porto Pub Crawl · Praça de Carlos Alberto · 22:30–02:30'
+            }
+          },
+          quantity: qty
         },
-        quantity: qty
-      }],
+        {
+          price_data: {
+            currency: 'eur',
+            unit_amount: 190,
+            tax_behavior: 'exclusive',
+            product_data: {
+              name: 'Book with Confidence',
+              description: 'Change your date or cancel up to 3 hours before the event. Enjoy complete flexibility.'
+            }
+          },
+          quantity: 1,
+          adjustable_quantity: { enabled: true, minimum: 0, maximum: 1 }
+        }
+      ],
       metadata: { package: pkg, event_date: date, quantity: String(qty) },
       return_url: siteUrl + '/?booking=success&session_id={CHECKOUT_SESSION_ID}'
     });
