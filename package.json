@@ -1,0 +1,19 @@
+{
+  "name": "porto-pub-crawl",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Porto Pub Crawl website with embedded Stripe Checkout",
+  "dependencies": {
+    "stripe": "^16.12.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}
