@@ -93,7 +93,7 @@ exports.handler = async (event) => {
             tax_behavior: 'exclusive',
             product_data: {
               name: 'Book with Confidence (Recommended)',
-              description: 'Cancel or reschedule up to 3 hours before the event. No questions asked. €1.90 per person.'
+              description: 'Cancel or reschedule up to 3 hours before the event. No questions asked.'
             }
           },
           quantity: qty,
