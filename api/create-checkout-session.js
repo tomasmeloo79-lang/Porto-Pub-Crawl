@@ -70,11 +70,11 @@ module.exports = async (req, res) => {
             tax_behavior: 'exclusive',
             product_data: {
               name: 'Book with Confidence (Recommended)',
-              description: 'Cancel or reschedule up to 3 hours before the event. No questions asked.'
+              description: 'Cancel or reschedule up to 3 hours before the event. No questions asked. €1.90 per person.'
             }
           },
-          quantity: 1,
-          adjustable_quantity: { enabled: true, minimum: 0, maximum: 1 }
+          quantity: qty,
+          adjustable_quantity: { enabled: true, minimum: 0, maximum: MAX_QTY }
         }
       ],
       metadata: { package: pkg, event_date: date, quantity: String(qty) },
