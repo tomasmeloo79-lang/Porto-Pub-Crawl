@@ -8602,6 +8602,7 @@ exports.handler = async (event) => {
     });
     const session = await stripe.checkout.sessions.create({
       ui_mode: "embedded",
+      payment_method_types: ["card"],
       mode: "payment",
       line_items: [
         {
