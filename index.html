@@ -2078,6 +2078,13 @@ try{
   let embeddedCheckout = null;
 
   // ----- build the Saturdays list, next one through 19 Dec 2026 -----
+  function toLocalISODate(dt){
+    const y = dt.getFullYear();
+    const m = String(dt.getMonth()+1).padStart(2,'0');
+    const day = String(dt.getDate()).padStart(2,'0');
+    return y+'-'+m+'-'+day;
+  }
+
   function nextSaturdays(untilIso){
     const out = [];
     const d = new Date();
@@ -2090,7 +2097,7 @@ try{
     let dt = new Date(d);
     while(dt <= until){
       out.push({
-        iso: dt.toISOString().slice(0,10),
+        iso: toLocalISODate(dt),
         dow: dowNames[dt.getDay()],
         day: dt.getDate(),
         mon: monNames[dt.getMonth()]
