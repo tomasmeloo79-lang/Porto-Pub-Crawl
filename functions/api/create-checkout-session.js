@@ -54,7 +54,7 @@ export async function onRequestPost({ request, env }) {
             unit_amount: PRICES_EUR[pkg] * 100,
             tax_behavior: 'exclusive',
             product_data: {
-              name: (packageName || pkg) + ' — Saturday ' + niceDate,
+              name: (packageName || pkg) + ' — ' + niceDate,
               description: 'Porto Pub Crawl · Praça de Carlos Alberto · 22:30–02:30'
             }
           },

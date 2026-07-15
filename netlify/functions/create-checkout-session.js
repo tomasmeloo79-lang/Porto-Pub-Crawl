@@ -8611,7 +8611,7 @@ exports.handler = async (event) => {
             unit_amount: PRICES_EUR[pkg] * 100,
             tax_behavior: "exclusive",
             product_data: {
-              name: (packageName || pkg) + " \u2014 Saturday " + niceDate,
+              name: (packageName || pkg) + " \u2014 " + niceDate,
               description: "Porto Pub Crawl \xB7 Pra\xE7a de Carlos Alberto \xB7 22:30\u201302:30"
             }
           },
